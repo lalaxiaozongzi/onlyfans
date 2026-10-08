@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lala Xiaozongzi | VIP Private Vault 💋</title>
+    <style>
+        /* Global Reset & Clean White Theme */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Profile Header - Mobile Optimized */
+        .profile-container {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            border: 1px solid #e1e4e8;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .profile-header-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .profile-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff2a5f;
+            box-shadow: 0 0 10px rgba(255, 42, 95, 0.2);
+        }
+        .profile-info h1 {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #1a1a1a;
+        }
+        .verified-badge {
+            color: #ff2a5f;
+            font-size: 13px;
+        }
+        .profile-handle {
+            color: #666;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            background: #f8f9fa;
+            border: 1px solid #edf0f2;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+        }
+        .profile-bio {
+            font-size: 12px;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        /* Free Content Notice Banner - Light Green Theme */
+        .free-content-banner {
+            width: 100%;
+            max-width: 480px;
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.12), rgba(40, 167, 69, 0.04));
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.06);
+        }
+        .banner-icon {
+            font-size: 24px;
+            background: rgba(40, 167, 69, 0.15);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .banner-text strong {
+            font-size: 13px;
+            color: #1e7e34;
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
+        }
+        .banner-text p {
+            font-size: 11.5px;
+            color: #333;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Video Grid - Mobile Optimized (2 Columns) */
+        .video-grid {
+            width: 100%;
+            max-width: 480px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding-bottom: 30px;
+        }
+
+        /* Video Card Item (Vertical Reel format) as Anchor Tag */
+        .video-card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e1e4e8;
+            aspect-ratio: 9 / 16; 
+            display: block;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            transition: transform 0.15s ease;
+        }
+        .video-card:active {
+            transform: scale(0.97);
+        }
+
+        /* Media Preview Wrapper with ~40% Blur Intensity */
+        .video-preview-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            transform: scale(1.08);
+            pointer-events: none;
+        }
+        .video-preview-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+        }
+
+        /* Shield Overlay that covers the preview */
+        .locker-trigger-shield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.35);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            text-align: center;
+            padding: 10px;
+        }
+        .lock-icon {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .lock-text {
+            font-size: 10px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #ff2a5f, #ff7e5f);
+            padding: 6px 12px;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(255, 42, 95, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Profile Section -->
+    <div class="profile-container">
+        <div class="profile-header-top">
+            <img src="https://i.ibb.co/FLVwkMpG/3b71cc16beb0a1ca3e601d55fae794b6.jpg" alt="Avatar" class="profile-avatar">
+            <div class="profile-info">
+                <h1>Lala Xiaozongzi <span class="verified-badge">✔</span></h1>
+                <div class="profile-handle">@lalaxiaozongzi</div>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">Posts</div>
+            </div>
+            <div>
+                <div class="stat-value">14.2K</div>
+                <div class="stat-label">Followers</div>
+            </div>
+            <div>
+                <div class="stat-value">4</div>
+                <div class="stat-label">Following</div>
+            </div>
+        </div>
+
+        <div class="profile-bio">
+            Exclusive Model 🤍<br>
+            Uncensored private reels & outfits just for you.<br>
+            Tap below to unlock everything for FREE! 🔥
+        </div>
+    </div>
+
+    <!-- Free Content Notice Banner -->
+    <div class="free-content-banner">
+        <div class="banner-icon">🔥</div>
+        <div class="banner-text">
+            <strong>UNLOCK ALL VIDEOS 100% FREE!</strong>
+            <p>No credit card required. Tap any locked reel below, complete <strong>one task</strong> and get instant access to my full private vault!</p>
+        </div>
+    </div>
+
+    <!-- Video Grid Section -->
+    <div class="video-grid">
+
+        <!-- Video Item 1 -> Put your 1st Locker URL directly in the href -->
+        <a href="YOUR_FIRST_LOCKER_URL_HERE" class="video-card">
+            <div class="video-preview-wrapper">
+                <img src="https://i.ibb.co/4ZB0XzP1/Screenshot-8-10-2026-22189-beeg-com.jpg" alt="Video 1 Preview">
+            </div>
+            <div class="locker-trigger-shield">
+                <div class="lock-icon">🔒</div>
+                <div class="lock-text">Watch Free</div>
+            </div>
+        </a>
+
+        <!-- Video Item 2 -> Put your 2nd Locker URL directly in the href -->
+        <a href="YOUR_SECOND_LOCKER_URL_HERE" class="video-card">
+            <div class="video-preview-wrapper">
+                <img src="https://i.ibb.co/PGLXNXnS/Screenshot-8-10-2026-221744-beeg-com.jpg" alt="Video 2 Preview">
+            </div>
+            <div class="locker-trigger-shield">
+                <div class="lock-icon">🔒</div>
+                <div class="lock-text">Watch Free</div>
+            </div>
+        </a>
+
+        <!-- Video Item 3 -> Put your 3rd Locker URL directly in the href -->
+        <a href="YOUR_THIRD_LOCKER_URL_HERE" class="video-card">
+            <div class="video-preview-wrapper">
+                <img src="https://i.ibb.co/TM0vXBLL/3.jpg" alt="Video 3 Preview">
+            </div>
+            <div class="locker-trigger-shield">
+                <div class="lock-icon">🔒</div>
+                <div class="lock-text">Watch Free</div>
+            </div>
+        </a>
+
+        <!-- Video Item 4 -> Put your 4th Locker URL directly in the href -->
+        <a href="YOUR_FOURTH_LOCKER_URL_HERE" class="video-card">
+            <div class="video-preview-wrapper">
+                <img src="https://i.ibb.co/2324YggS/Screenshot-8-10-2026-221659-beeg-com.jpg" alt="Video 4 Preview">
+            </div>
+            <div class="locker-trigger-shield">
+                <div class="lock-icon">🔒</div>
+                <div class="lock-text">Watch Free</div>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
